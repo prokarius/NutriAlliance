@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+    </style>
+  </head>
+  <body>
+    <script language="javascript" src="../scripts/BMI.js"></script>
+    <a href="../index.html">
+      <div class="back">
+        <h2>&lt;</h2>
+      </div>
+    </a>
+    <div class="container">
+      <div class="title">
+        <center>Self Diagnosis</center>
+      </div>
+      <div class="inside-box">
+        <form>
+          Height: <input id="height" type="number" step="0.5"> cm <br>
+          Weight: <input id="weight" type="number" step="0.1"> kg <br>
+        </form>
+        <button onclick="onSubmit2()">Diagnose</button>
+        <h2 id="results"></h2>
+        <p id="bmiResults"></p>
+        <p id="nutrition"></p>
+        <h2 id="summary"></h2>
+        <p id="recommendation"></p>
+        <a href="nutrition.html"><p id="reclink"></p></a>
+      </div>
+      <img src="../assets/Wireframe.png">
+    </div>
+  </body>
+</html>
