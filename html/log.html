@@ -15,8 +15,15 @@
         <center>My Log</center>
       </div>
       <div class="inside-box">
-        <canvas id="myCanvas" width="300" height="372" style="border:1px solid #000;"></canvas>
+        <p>Health graph for <select onchange="changeGraph(this);">
+                <option value="0">Maria</option>
+                <option value="1">Juan</option>
+                <option value="2">Susan</option>
+            </select></p>
+        <canvas id="myCanvas" width="300" height="180" style="border:1px solid #000;"></canvas>
         <script language="javascript" src="../scripts/canvas.js"></script>
+        <p>Diagnostic Notes</p>
+        <textarea id="comment" form="usrform" style="width:300px; height:70px;">3 Sept 2018: Did not eat food.</textarea>
       </div>
       <img src="../assets/Wireframe.png">
     </div>

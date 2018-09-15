@@ -1,18 +1,21 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
+var datachoice = 0;
 
 var rect = canvas.getBoundingClientRect();
 var XSCALE = rect.right - rect.left;
-var YSCALE = (rect.bottom - rect.top) * 0.4;
+var YSCALE = (rect.bottom - rect.top) * 0.5;
 
-var data = [[0.13, 0.72], [0.24, 0.74], [0.33, 0.70], [0.41, 0.72], [0.56, 0.67], [0.61, 0.63], [0.69, 0.64], [0.78, 0.68], [0.86, 0.71]];
+var data = [[[0.13, 0.78], [0.24, 0.76], [0.33, 0.74], [0.41, 0.80], [0.56, 0.92], [0.61, 0.90], [0.69, 0.86], [0.78, 0.82], [0.86, 0.78]],
+    [[0.12, 0.60], [0.21, 0.68], [0.33, 0.64], [0.44, 0.72], [0.58, 0.82], [0.64, 0.82], [0.78, 0.86], [0.86, 0.80]],
+    [[0.12, 0.66], [0.21, 0.72], [0.33, 0.74], [0.44, 0.72], [0.58, 0.72], [0.64, 0.76], [0.78, 0.70], [0.86, 0.66]]
+];
 
 drawClock();
 
 function drawClock() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawaxis();
-    drawGraph(data);
+    drawGraph(data[datachoice]);
 }
 
 function drawArrow(fromx, fromy, tox, toy){
@@ -49,11 +52,6 @@ function drawArrow(fromx, fromy, tox, toy){
     ctx.fill();
 }
 
-function drawaxis(){
-    drawArrow(20, 260, 20, 20);
-    drawArrow(10, 250, 280, 250);
-}
-
 function dot2dot(inputdat){
     ctx.beginPath();
     ctx.moveTo(inputdat[0][0] * XSCALE, inputdat[0][1] * YSCALE);
@@ -64,10 +62,31 @@ function dot2dot(inputdat){
 }
 
 function drawGraph(inputdata) {
+    drawText("Weight across Time", 90, 32);
+    drawArrow(20, 160, 20, 20);
+    drawArrow(10, 150, 280, 150);
     var out = []
     for (i = 0; i < inputdata.length - 1; i++){
         out[i] = [inputdata[i], inputdata[i+1]];
     }
     out.map(dot2dot);
-    console.log(out);
+}
+
+function drawText(text, posx, posy){
+    ctx.font="15px Arial";
+    ctx.fillText(text, posx, posy);
+}
+
+var comments = [
+    "Was not able to eat food on 3rd Sept 2018. Adviced to eat more food",
+    "Advised to eat more nutritious food and rest, losing weight heavily.",
+    "Generally healthy."
+]
+
+function changeGraph(select){
+    datachoice = select.value;
+    console.log(datachoice);
+    drawClock();
+    var commentField = document.getElementById("comment");
+    commentField.innerHTML=comments[datachoice];
 }
