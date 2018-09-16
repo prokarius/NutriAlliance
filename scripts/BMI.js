@@ -22,6 +22,7 @@ function onSubmit(){
     var bpResults = "";
     if (bp1 < 120 && bp2 < 80){
         bpResults = "Normal.";
+        bpDisplay.style.color = "green";
     }
     else if (bp1 < 140 && bp2 < 90){
         bpResults = "At risk.";
@@ -37,12 +38,12 @@ function onSubmit(){
 
     var nutrition = document.getElementById("nutrition");
     if (bmi < 16){
-        nutrition.innerHTML = "Severely Malnourished.";
+        nutrition.innerHTML = "Severely <a href='malnourish.html'>Malnourished</a>.";
         nutrition.style.color = "red";
         counter += 3
     }
     else if (bmi < 18){
-        nutrition.innerHTML = "Malnourished...";
+        nutrition.innerHTML = "<a href='malnourish.html'>Malnourished</a>";
         nutrition.style.color = "olive";
         counter += 1;
     }
@@ -86,12 +87,12 @@ function onSubmit2(){
 
     var nutrition = document.getElementById("nutrition");
     if (bmi < 16){
-        nutrition.innerHTML = "Severely Malnourished.";
+        nutrition.innerHTML = "Severely <a href='malnourish.html'>Malnourished</a>.";
         nutrition.style.color = "red";
         counter += 2
     }
     else if (bmi < 18){
-        nutrition.innerHTML = "Malnourished...";
+        nutrition.innerHTML = "<a href='malnourish.html'>Malnourished</a>";
         nutrition.style.color = "olive";
         counter += 1;
     }
@@ -107,7 +108,7 @@ function onSubmit2(){
         summary.innerHTML = "Healthy";
         summary.style.color = "green";
     }
-    else if (counter < 2){
+    else if (counter < 1){
         recommendation.innerHTML = "You are underweight!";
         recommendation.style.color = "olive";
         reclink.innerHTML = "Consult our nutrition planner for more information.";

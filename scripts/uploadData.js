@@ -45,7 +45,7 @@ function drawClock(){
             drawText("Syncing in progress", 60, 230);
         }
         else {
-            drawText("Updating...", 80, 230);
+            drawText("Updating...", 105, 230);
         }
         drawProgress(progress);
     }
