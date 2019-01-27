@@ -1,14 +1,29 @@
 <template>
-    <Page class="page">
-        <ActionBar title="Home" class="action-bar" />
-        <ScrollView>
-            <StackLayout class="home-panel">
-                <!--Add your page content here-->
-                <Label textWrap="true" text="Play with NativeScript!" class="h2 description-label" />
-                <Label textWrap="true" text="Write code in the editor or drag and drop components to build a NativeScript mobile application." class="h2 description-label" />
-                <Label textWrap="true" text="Scan the QR code with your mobile device and watch the changes sync live while you play with the code." class="h2 description-label" />
+    <Page class="Page" actionBarHidden="true" backgroundSpanUnderStatusBar="true">
+        <GridLayout rows="auto,auto">
+            <StackLayout row="0">
+                <Label class="bold" :text="city"></Label>
+                <Label :text="summary"></Label>
+                <Image class="weather-image" :src="image" />
+
+                <GridLayout class="weather-box" columns="1*,1*" rows="auto">
+                    <Label col="0" row="0" class="large" :text="currentTemperature"></Label>
+                    <StackLayout col="1" row="0">
+                        <Label class="small bold" text="details"></Label>
+                        <StackLayout class="hr-light tight"></StackLayout>
+                        <Label class="small" :text="humidity"></Label>
+                        <Label class="small" :text="windSpeed"></Label>
+                        <Label class="small" :text="visibility"></Label>
+                    </StackLayout>
+                </GridLayout>
+            
             </StackLayout>
-        </ScrollView>
+            
+            <StackLayout row="1">
+                <Label :text="day"></Label>
+                <Label :text="time"></Label>
+            </StackLayout>
+        </GridLayout>
     </Page>
 </template>
 
@@ -32,4 +47,3 @@ export default {
     margin-bottom: 15;
 }
 </style>
-
