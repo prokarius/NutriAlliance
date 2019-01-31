@@ -1,14 +1,19 @@
 <template>
   <Page class="Page" actionBarHidden="true" backgroundSpanUnderStatusBar="true">
-    <Button text="To Test!" @tap="$navigateTo(VTest)"/>
+    <StackLayout orientation="vertical">
+      <VTopNavBar/>
+      <Button text="To Test!" @tap="$navigateTo(VTest)"/>
+    </StackLayout>
   </Page>
 </template>
 
 <script>
 import VTest from "./VTest";
+import VTopNavBar from "./VTopNavBar";
 
 export default {
   name: "VHome",
+  components: { VTopNavBar },
   data() {
     return {
       VTest: VTest
